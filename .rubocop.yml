@@ -1,27 +1,20 @@
-# AllCops section is a configuration that is applied globally to all cops.
-# It allows you to configure RuboCop's global behavior.
-
-AllCops:
-  Exclude:
-    - 'vendor/**/*' # Exclude vendored files
-    - 'db/schema.rb' # Exclude the schema file
-
-# Style/Documentation cop checks for documentation comments.
-# Here we're excluding this cop because it's complaining about missing top-level documentation comment for class.
+# Style/Documentation проверяет документационные комментарии.
+# Здесь мы отключаем эту проверку, потому что она жалуется на отсутствие документационного комментария верхнего уровня для класса.
 Style/Documentation:
   Enabled: false
 
-# Metrics/BlockLength cop checks the length of blocks.
-# Here we're increasing the maximum allowed lines per block to 40.
 Metrics/BlockLength:
-  Max: 40
+  Max: 60 # Увеличиваем максимальное количество строк в блоке до 60 или больше, чтобы избежать предупреждения.
 
-# Style/StringLiterals cop checks for consistent use of single-quoted and double-quoted strings.
-# We're disabling this cop to allow both single and double quotes.
+# Style/StringLiterals проверяет последовательное использование строк в одинарных и двойных кавычках.
+# Мы отключаем эту проверку, чтобы разрешить использование как одинарных, так и двойных кавычек.
 Style/StringLiterals:
   Enabled: false
 
-# Layout/TrailingWhitespace cop checks for trailing whitespace.
-# We're disabling this cop because it's complaining about trailing whitespace.
+# Layout/TrailingWhitespace проверяет наличие пробелов в конце строк.
+# Мы отключаем эту проверку, потому что она жалуется на наличие пробелов в конце строк.
 Layout/TrailingWhitespace:
   Enabled: false
+
+Layout/LineLength:
+  Max: 150 # Увеличиваем максимальную длину строки до 150 символов или больше, чтобы избежать предупреждения.

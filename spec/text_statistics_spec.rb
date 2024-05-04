@@ -40,4 +40,33 @@ RSpec.describe TextStatistics do
       expect(text_statistics.word_frequency).to eq(expected_frequency)
     end
   end
+
+  describe '#average_word_length' do
+    it 'returns the correct average word length' do
+      expect(text_statistics.average_word_length).to eq(5.076923076923077)
+    end
+  end
+
+  describe '#character_frequency' do
+    it 'returns the correct character frequency' do
+      expected_frequency = { 'T' => 1, 'h' => 2, 'i' => 5, 's' => 8, 'a' => 3, 't' => 10,
+                             'e' => 10, 'x' => 1, '.' => 2, 'c' => 2, 'o' => 3, 'n' => 4,
+                             'm' => 2, 'u' => 1, 'l' => 2, 'p' => 2, 'r' => 2, 'd' => 2,
+                             'w' => 2, "," => 1, "I" => 1 }
+      expect(text_statistics.character_frequency).to eq(expected_frequency)
+    end
+  end
+  
+  describe '#prepositions_and_conjunctions_frequency' do
+    it 'returns the correct prepositions and conjunctions frequency' do
+      expected_frequency = { 'is' => 1, 'a' => 1, 'it' => 1, 'with' => 1, 'some' => 1 }
+      expect(text_statistics.prepositions_and_conjunctions_frequency).to eq(expected_frequency)
+    end
+  end
+  
+  describe '#text_uniqueness_index' do
+    it 'returns the correct text uniqueness index' do
+      expect(text_statistics.text_uniqueness_index).to eq(100)
+    end
+  end
 end

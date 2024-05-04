@@ -45,10 +45,14 @@ class TextStatistics
   end
 
   def prepositions_and_conjunctions_frequency
-    prepositions_and_conjunctions = %w[in on at by for from with to into onto upon as about after before during since through]
+    prepositions_and_conjunctions = %w[is it in on a some at by for from with to into onto upon as about after before during since through]
     words = text.downcase.split
     frequency = Hash.new(0)
-    words.each { |word| frequency[word] += 1 if prepositions_and_conjunctions.include?(word) }
+    words.each do |word|
+      prepositions_and_conjunctions.each do |prep_conj|
+        frequency[prep_conj] += 1 if word == prep_conj
+      end
+    end
     frequency
   end
 

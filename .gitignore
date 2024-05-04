@@ -1,0 +1,5 @@
+# Игнорируем .replit, .idea/, .git/ и Gemfile.lock
+.replit
+.idea/
+Gemfile.lock
+.git

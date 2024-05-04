@@ -61,7 +61,7 @@ jobs:
     - name: Install dependencies
       run: gem install bundler && bundle install
 
-    - name: Run coverage tests
+    - name: Run tests with SimpleCov
       run: |
         bundle exec rspec --format progress
         echo "Running SimpleCov"

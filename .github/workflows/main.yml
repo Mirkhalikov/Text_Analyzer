@@ -12,69 +12,72 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          gem install bundler -v 2.2.22
-          bundle _2.2.22_ install
+    - name: Clean coverage directory
+      run: rm -rf coverage
 
-      - name: Run tests
-        run: bundle _2.2.22_ exec rspec
+    - name: Install dependencies
+      run: gem install bundler && bundle install
+
+    - name: Run tests
+      run: bundle exec rspec
 
   lint:
     name: Lint
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          gem install bundler -v 2.2.22
-          bundle _2.2.22_ install
+    - name: Clean coverage directory
+      run: rm -rf coverage
 
-      - name: Run RuboCop
-        run: bundle _2.2.22_ exec rubocop
+    - name: Install dependencies
+      run: gem install bundler && bundle install
+
+    - name: Run RuboCop
+      run: bundle exec rubocop
 
   coverage:
     name: Coverage
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          gem install bundler -v 2.2.22
-          bundle _2.2.22_ install
+    - name: Clean coverage directory
+      run: rm -rf coverage
 
-      - name: Run tests with SimpleCov
-        run: |
-          bundle _2.2.22_ exec rspec --format progress
-          echo "Running SimpleCov"
-          bundle _2.2.22_ exec rspec
-          echo "Collecting SimpleCov report"
-          mkdir coverage
-          mv coverage/.resultset.json ./coverage/.resultset.json
-        env:
-          RAILS_ENV: test
-          SIMPLECOV: true
+    - name: Install dependencies
+      run: gem install bundler && bundle install
+
+    - name: Run coverage tests
+      run: |
+        bundle exec rspec --format progress
+        echo "Running SimpleCov"
+        bundle exec rspec
+        echo "Collecting SimpleCov report"
+        mkdir coverage
+        mv coverage/.resultset.json ./coverage/.resultset.json
+      env:
+        RAILS_ENV: test
+        SIMPLECOV: true

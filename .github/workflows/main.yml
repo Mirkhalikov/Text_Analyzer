@@ -76,7 +76,7 @@ jobs:
           if [ ! -d "coverage" ]; then
             mkdir coverage
           fi
-          mv coverage/.resultset.json ./coverage/.resultset.json
+          mv ./coverage/.resultset.json ./coverage/resultset.json
         env:
           RAILS_ENV: test
           SIMPLECOV: true

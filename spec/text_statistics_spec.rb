@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 require_relative '../lib/text_statistics'
+require 'simplecov'
+SimpleCov.start
 
 RSpec.describe TextStatistics do
-  let(:text) { "This is a test text. It contains multiple sentences, with some repeated words." }
+  let(:text) { 'This is a test text. It contains multiple sentences, with some repeated words.' }
   let(:text_statistics) { TextStatistics.new(text) }
 
   describe '#word_count' do
@@ -30,9 +34,9 @@ RSpec.describe TextStatistics do
 
   describe '#word_frequency' do
     it 'returns the correct word frequency' do
-      expected_frequency = { "this" => 1, "is" => 1, "a" => 1, "test" => 1, "text." => 1, 
-                             "it" => 1, "contains" => 1, "multiple" => 1, "sentences," => 1, 
-                             "with" => 1, "some" => 1, "repeated" => 1, "words." => 1 }
+      expected_frequency = { 'this' => 1, 'is' => 1, 'a' => 1, 'test' => 1, 'text.' => 1,
+                             'it' => 1, 'contains' => 1, 'multiple' => 1, 'sentences,' => 1,
+                             'with' => 1, 'some' => 1, 'repeated' => 1, 'words.' => 1 }
       expect(text_statistics.word_frequency).to eq(expected_frequency)
     end
   end

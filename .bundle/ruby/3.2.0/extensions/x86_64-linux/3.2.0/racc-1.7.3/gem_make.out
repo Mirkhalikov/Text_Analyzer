@@ -1,0 +1,18 @@
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+/nix/store/lagm6rcd03sff9zxfcm6zlicwp0g08cp-ruby-3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-s7q30f sitelibdir\=./.gem.20240507-960-s7q30f clean
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-s7q30f sitelibdir\=./.gem.20240507-960-s7q30f
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-s7q30f sitelibdir\=./.gem.20240507-960-s7q30f install
+install -c -p -m 755 cparse.so ./.gem.20240507-960-s7q30f/racc
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-s7q30f sitelibdir\=./.gem.20240507-960-s7q30f clean

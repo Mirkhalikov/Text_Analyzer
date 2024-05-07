@@ -28,6 +28,8 @@ class TextStatistics
   def average_sentence_length
     words = text.split
     sentences = text.split(/\.|\?|!/)
+    return 0.0 if sentences.empty?
+
     words.size.to_f / sentences.size
   end
 
@@ -43,6 +45,8 @@ class TextStatistics
   def average_word_length
     words = text.split
     total_length = words.map(&:length).reduce(:+)
+    return 0.0 if words.size == 0
+
     total_length.to_f / words.size
   end
 
@@ -53,23 +57,31 @@ class TextStatistics
     frequency
   end
 
+  #  def prepositions_and_conjunctions_frequency
+  #    prepositions_and_conjunctions = %w[is it in on a some at by for from with to into onto upon as about after before during since through]
+  #    words = text.downcase.split
+  #    frequency = Hash.new(0)
+  #    words.each do |word|
+  #      prepositions_and_conjunctions.each do |prep_conj|
+  #        frequency[prep_conj] += 1 if word == prep_conj
+  #      end
+  #    end
+  #    frequency
+  #  end
   # Возвращает частоту предлогов и союзов в тексте
   def prepositions_and_conjunctions_frequency
-    prepositions_and_conjunctions = %w[is it in on a some at by for from with to into onto upon as about after before during since through]
+    prepositions_and_conjunctions = %w[is it in on a some at by for from with to into onto#upon as about after before during since through]
     words = text.downcase.split
     frequency = Hash.new(0)
-    words.each do |word|
-      prepositions_and_conjunctions.each do |prep_conj|
-        frequency[prep_conj] += 1 if word == prep_conj
-      end
-    end
-    frequency
+    word_frequency.select { |key, _value| prepositions_and_conjunctions.include?(key) }
   end
 
   # Возвращает индекс уникальности текста, выраженный в процентах
   def text_uniqueness_index
-    unique_words = text.downcase.split.uniq.size
-    total_words = text.split.size
-    (unique_words.to_f / total_words) * 100
+    unique_words = text.downcase.split(/\.|\?|!|,|:|;/).uniq.size
+    total_words = text.split(/\.|\?|!|,|:|;/).size
+    return 100.0 if total_words == 0
+
+    (unique_words.to_f / total_words.to_f) * 100
   end
 end

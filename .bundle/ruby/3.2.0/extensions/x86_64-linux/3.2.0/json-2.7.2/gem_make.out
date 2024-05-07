@@ -1,0 +1,16 @@
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/json-2.7.2/ext/json
+/nix/store/lagm6rcd03sff9zxfcm6zlicwp0g08cp-ruby-3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-dcgr8 sitelibdir\=./.gem.20240507-960-dcgr8 clean
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-dcgr8 sitelibdir\=./.gem.20240507-960-dcgr8
+make: Nothing to be done for 'all'.
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-dcgr8 sitelibdir\=./.gem.20240507-960-dcgr8 install
+
+current directory: /home/runner/TextAnalyzer/.bundle/ruby/3.2.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240507-960-dcgr8 sitelibdir\=./.gem.20240507-960-dcgr8 clean
